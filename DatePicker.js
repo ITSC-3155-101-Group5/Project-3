@@ -1,3 +1,4 @@
+'use strict';
 class DatePicker {
   constructor(divId, callback) {
     this.divId = divId;
@@ -47,10 +48,10 @@ class DatePicker {
 
     let dayCounter = 1;
     let nextMonthDay = 1;
-    let weeks = [];
+    const weeks = [];
 
     while (dayCounter <= lastDayOfMonth) {
-      let week = [];
+      const week = [];
 
       for (let i = 0; i < 7; i++) {
         if (weeks.length === 0 && i < startingDay) {
@@ -74,9 +75,9 @@ class DatePicker {
       weeks.push(week);
     }
 
-    for (let week of weeks) {
+    for (const week of weeks) {
       html += "<tr>";
-      for (let dayObj of week) {
+      for (const dayObj of week) {
         if (dayObj.currentMonth) {
           html += `<td class="current-month" data-day="${dayObj.day}">${dayObj.day}</td>`;
         } else {
@@ -104,7 +105,7 @@ class DatePicker {
 
     this.container.querySelectorAll(".current-month").forEach(cell => {
       cell.addEventListener("click", () => {
-        const selectedDay = parseInt(cell.getAttribute("data-day"));
+        const selectedDay = parseInt(cell.getAttribute("data-day"),10);
         this.callback(this.divId, {
           month: month + 1,
           day: selectedDay,
