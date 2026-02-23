@@ -17,7 +17,23 @@
       'use strict';
 
       /* global DatePicker */
+       /*
+        Global reference to DatePicker class
+        (Declared in DatePicker.js)
+      */
+      /* global DatePicker */
 
+      /*
+        Create first DatePicker instance.
+
+        Parameters:
+        - 'datepicker1' → id of the container div
+        - callback function → executed when a date is selected
+
+        The callback receives:
+        - id: the id of the DatePicker instance
+        - fixedDate: an object containing {month, day, year}
+      */
       var datePicker1 = new DatePicker('datepicker1', function (id, fixedDate) {
         console.log(
           'DatePicker with id',
@@ -27,6 +43,12 @@
         );
       });
       datePicker1.render(new Date());
+
+  /*
+        Create second DatePicker instance.
+        This one is initialized to January 1, 2009.
+      */
+
       var datePicker2 = new DatePicker('datepicker2', function (id, fixedDate) {
         console.log(
           'DatePicker with id',
